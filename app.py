@@ -3,8 +3,10 @@ import joblib
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import StandardScaler, OneHotEncoder, OrdinalEncoder, MinMaxScaler
-
+from flask import Flask
+from flask_cors import CORS
 app = Flask(__name__)
+CORS(app)
 
 # Load models
 models = {

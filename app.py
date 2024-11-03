@@ -49,6 +49,9 @@ def set_one_hot_feature(df, feature_name, feature_value):
     else:
         df[encoded_feature] = 0  # Default value if feature is not in expected columns
 
+@app.route('/')
+def home():
+    return render_template('index.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():

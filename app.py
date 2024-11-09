@@ -10,11 +10,11 @@ CORS(app)
 
 # Load models
 models = {
+    'bestModel':joblib.load('RandomForest_FinalModel.pkl'),
     'randomForest': joblib.load("RandomForest.pkl"),
     'linearRegression': joblib.load("LinearRegression.pkl"),
     'elasticNet': joblib.load("ElasticNet.pkl"),
     'gradientBoosting': joblib.load("GradientBoosting.pkl"),
-
 }
 
 scaler = StandardScaler()
@@ -58,7 +58,7 @@ def predict():
         input_data = request.get_json()
         input_df = pd.DataFrame([input_data])  # Check if the selected model is valid
         selected_model = input_data.get('model', 'linearRegression')
-        model = models.get(selected_model, models['linearRegression'])
+        model = models.get("bestModel")
 
         # Extract values from input data
         county = input_data.get('county')

@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import joblib
 import numpy as np
 import pandas as pd
@@ -51,6 +51,9 @@ def set_one_hot_feature(df, feature_name, feature_value):
     else:
         df[encoded_feature] = 0  # Default value if feature is not in expected columns
 
+@app.route('/')
+def home():
+    return render_template('index.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():

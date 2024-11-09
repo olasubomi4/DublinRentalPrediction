@@ -11,6 +11,7 @@ CORS(app)
 # Load models
 models = {
     'bestModel':joblib.load('RandomForest_FinalModel.pkl'),
+
     'randomForest': joblib.load("RandomForest.pkl"),
     'linearRegression': joblib.load("LinearRegression.pkl"),
     'elasticNet': joblib.load("ElasticNet.pkl"),
